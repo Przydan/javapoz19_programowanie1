@@ -50,7 +50,7 @@ public class Application {
         }
     }
 
-    static void showModernAuthors(List<Author> authors) { 
+    static void showModernAuthors(List<Author> authors) {
         for (Author author : authors) {
             if (author.getBirthyear() > 1900) {
                 System.out.println(author);
