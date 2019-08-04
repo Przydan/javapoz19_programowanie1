@@ -1,12 +1,10 @@
 package pl.sdacademy;
 
+import pl.sdacademy.books.Author;
+import pl.sdacademy.books.Book;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import static pl.sdacademy.Nation.PL;
-import static pl.sdacademy.Nation.USA;
 
 //import static sun.jvm.hotspot.runtime.BasicObjectLock.size;
 

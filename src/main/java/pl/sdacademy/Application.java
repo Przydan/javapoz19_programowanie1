@@ -1,5 +1,7 @@
 package pl.sdacademy;
 
+import pl.sdacademy.books.Author;
+
 import java.util.*;
 
 import static pl.sdacademy.Nation.PL;

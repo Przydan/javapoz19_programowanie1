@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.books;
 
 public class Book {
     private String title;

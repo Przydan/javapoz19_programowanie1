@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class BooksStart {
     private BooksViews views;
+    private AuthorsRepository authorsRepository;
 
     public BooksStart() {
         this.views = new BooksViews(new Scanner(System.in));
+        this.authorsRepository = new InMemoryAuthorsRepository();
     }
 
     public void start() {
@@ -32,6 +34,16 @@ public class BooksStart {
     }
 
     private void authorsView() {
-        System.out.println("tutaj beda autorzy");
+        boolean flag = true;
+
+        do {
+            int decision = views.authorsMenu(authorsRepository.findAll());
+            switch (decision) {
+                case   1:
+                    //TODO
+                default:
+                    flag = false;
+            }
+        }while (flag);
     }
 }

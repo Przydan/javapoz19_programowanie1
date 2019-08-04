@@ -1,4 +1,6 @@
-package pl.sdacademy;
+package pl.sdacademy.books;
+
+import pl.sdacademy.Nation;
 
 import java.util.Objects;
 
