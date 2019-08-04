@@ -1,5 +1,7 @@
 package pl.sdacademy.books;
 
+import pl.sdacademy.Nation;
+
 import java.util.Scanner;
 
 public class BooksStart {
@@ -39,8 +41,10 @@ public class BooksStart {
         do {
             int decision = views.authorsMenu(authorsRepository.findAll());
             switch (decision) {
-                case   1:
-                    //TODO
+                case   1: // findByNation
+                    Nation nation = views.getNation();
+
+                    break;
                 default:
                     flag = false;
             }

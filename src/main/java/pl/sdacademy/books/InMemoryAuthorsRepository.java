@@ -20,6 +20,12 @@ public class InMemoryAuthorsRepository implements AuthorsRepository {
         return new ArrayList<>(authors); // przekazać kopie,
     }
 
+    @Override
+    public List<Author> findByNation(Nation nation) {
+        //TODO zapisać w lamdzie 
+        return null;
+    }
+
     private void init() {
         authors.add(new Author("Stephen", "King", 1947, Nation.USA));
         authors.add(new Author("Henryk", "Sienkiewicz", 1846, Nation.PL));
