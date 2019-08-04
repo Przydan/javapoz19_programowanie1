@@ -25,7 +25,8 @@ public class ApplicationBook {
                 .filter(book -> book.getReleaseYear() < 2000)
                 .filter(book -> book.getPages() > 300)
                 //.forEach(book -> System.out.println(book))
-                .forEach(System.out::println);
+                .map(book -> book.getTitle())
+                .forEach(bookTitle -> System.out.println(bookTitle));
 
 
 
