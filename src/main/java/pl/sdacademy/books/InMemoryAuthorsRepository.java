@@ -22,7 +22,7 @@ public class InMemoryAuthorsRepository implements AuthorsRepository {
 
     @Override
     public List<Author> findByNation(Nation nation) {
-        //TODO zapisać w lamdzie 
+        //TODO zapisać w lamdzie
         return null;
     }
 

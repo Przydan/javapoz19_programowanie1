@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class BooksStart {
     private BooksViews views;
     private AuthorsRepository authorsRepository;
+    private BooksRepository booksRepository;
 
     public BooksStart() {
         this.views = new BooksViews(new Scanner(System.in));

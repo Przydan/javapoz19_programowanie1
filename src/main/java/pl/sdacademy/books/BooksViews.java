@@ -17,8 +17,17 @@ public class BooksViews {
         System.out.println("1. Authors ");
         System.out.println("2. Books ");
         System.out.println("0. Koniec ");
-
         return getDecisionAfterEnter();
+    }
+
+    public int authorsMenu(List<Author> authors) {
+        authors.stream()
+                .forEach(author -> System.out.println(author));
+        System.out.println();
+        System.out.println("1. Find by nation (PL, ENG, USA)"); //TODO zrobić to dynamicznie
+        System.out.println("2. Find by after birthYear");
+        System.out.println("0. Wróć");
+        return getDecision();
     }
 
     public int getDecision() {
@@ -35,24 +44,11 @@ public class BooksViews {
         scanner.nextLine(); // istotne że tu to jest
         return menu;
     }
-
-    public int authorsMenu(List<Author> authors) {
-        authors.stream()
-                .forEach(author -> System.out.println(author));
-
-        System.out.println();
-        System.out.println("1. Find by nationality (PL, ENG, USA )"); //TODO zrobić to dynamicznie
-        System.out.println("Find by ...");
-        System.out.println("0. Wróć");
-        return getDecision();
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello Whats your name");
-        String name = scanner.nextLine();
-        System.out.println("Hello " + name);
-        System.out.println("");
-    }
-
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Hello Whats your name");
+//        String name = scanner.nextLine();
+//        System.out.println("Hello " + name);
+//        System.out.println("");
+//    }
 }
