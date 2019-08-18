@@ -1,10 +1,8 @@
 package pl.sdacademy.books;
 
-import pl.sdacademy.Nation;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InMemoryAuthorsRepository implements AuthorsRepository {
 
@@ -22,8 +20,17 @@ public class InMemoryAuthorsRepository implements AuthorsRepository {
 
     @Override
     public List<Author> findByNation(Nation nation) {
-        //TODO zapisać w lamdzie
-        return null;
+        //TODO zapisać w lambdzie
+        return authors.stream()
+                .filter(author -> author.getNation().equals(nation))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Author> findAfterBirthYear(int birthYear) {
+        return authors.stream()
+                .filter(author -> author.getBirthYear() >= birthYear)
+                .collect(Collectors.toList());
     }
 
     private void init() {

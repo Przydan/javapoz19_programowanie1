@@ -1,11 +1,12 @@
 package pl.sdacademy;
 
 import pl.sdacademy.books.Author;
+import pl.sdacademy.books.Nation;
 
 import java.util.*;
 
-import static pl.sdacademy.Nation.PL;
-import static pl.sdacademy.Nation.USA;
+import static pl.sdacademy.books.Nation.PL;
+import static pl.sdacademy.books.Nation.USA;
 
 public class Application {
     public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class Application {
 
         author1.setFirstName("Henryk");
         author1.setLastName("Sienkiewicz");
-        author1.setBirthyear(1846);
+        author1.setBirthYear(1846);
         author1.setNation(PL);
 
         //List<Author> authors = Arrays.asList(author1, author2, author3, author4);
@@ -54,7 +55,7 @@ public class Application {
 
     static void showModernAuthors(List<Author> authors) {
         for (Author author : authors) {
-            if (author.getBirthyear() > 1900) {
+            if (author.getBirthYear() > 1900) {
                 System.out.println(author);
             }
         }
@@ -62,7 +63,7 @@ public class Application {
 
     static void showByNationAndBirthYear(List<Author> authors, Nation nation, int birthYear) {
         for (Author author : authors) {
-            if (((author.getNation().equals(nation))) && (author.getBirthyear() > birthYear)) {
+            if (((author.getNation().equals(nation))) && (author.getBirthYear() > birthYear)) {
                 System.out.println(author);
             }
         }

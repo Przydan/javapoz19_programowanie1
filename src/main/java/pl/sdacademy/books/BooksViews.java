@@ -1,7 +1,5 @@
 package pl.sdacademy.books;
 
-import pl.sdacademy.Nation;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,12 +19,20 @@ public class BooksViews {
     }
 
     public int authorsMenu(List<Author> authors) {
-        authors.stream()
-                .forEach(author -> System.out.println(author));
+        authors.forEach(author -> System.out.println(author));
         System.out.println();
         System.out.println("1. Find by nation (PL, ENG, USA)"); //TODO zrobić to dynamicznie
         System.out.println("2. Find by after birthYear");
-        System.out.println("0. Wróć");
+        System.out.println("0. Back");
+        return getDecision();
+    }
+
+    public int booksMenu(List<Book> books) {
+        books.forEach(book -> System.out.println(book));
+        System.out.println("1. Find by after release year");
+        System.out.println("2. Search by title");
+        System.out.println("3. Search by author");
+        System.out.println("0. Back");
         return getDecision();
     }
 
@@ -39,11 +45,31 @@ public class BooksViews {
         return Nation.valueOf(nationAsString);
     }
 
-    private int getDecisionAfterEnter() {
-        int menu = scanner.nextInt();
-        scanner.nextLine(); // istotne że tu to jest
-        return menu;
+    public int getBirthYear() {
+        return readIntAndClearLine();
     }
+
+    private int getDecisionAfterEnter() {
+        return readIntAndClearLine();
+//        int menu = scanner.nextInt();
+//        scanner.nextLine(); // istotne że tu to jest
+//        return menu;
+    }
+
+    public int getReleaseYear() {
+        return readIntAndClearLine();
+    }
+
+    private int readIntAndClearLine() {
+        int value = scanner.nextInt();
+        scanner.nextLine();
+        return value;
+    }
+
+    public String getPhrase() {
+        return scanner.nextLine().trim();
+    }
+
 //    public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Hello Whats your name");

@@ -1,17 +1,17 @@
 package pl.sdacademy.books;
 
-import pl.sdacademy.Nation;
-
+import java.util.List;
 import java.util.Scanner;
 
 public class BooksStart {
     private BooksViews views;
     private AuthorsRepository authorsRepository;
-    private BooksRepository booksRepository;
+    private BooksService booksService;
 
     public BooksStart() {
         this.views = new BooksViews(new Scanner(System.in));
         this.authorsRepository = new InMemoryAuthorsRepository();
+        this.booksService = new BooksService(new InMemoryBooksRepository(authorsRepository));
     }
 
     public void start() {
@@ -33,22 +33,49 @@ public class BooksStart {
     }
 
     private void booksView() {
-        System.out.println("tutaj beda ksiazki");
-    }
+        //System.out.println("tutaj beda ksiazki");
 
-    private void authorsView() {
         boolean flag = true;
-
+        List<Book> books = booksService.findAll();
         do {
-            int decision = views.authorsMenu(authorsRepository.findAll());
+            int decision = views.booksMenu(books);
             switch (decision) {
-                case   1: // findByNation
-                    Nation nation = views.getNation();
-
+                case 1: // findByReleaceYear
+                    int releaseYear = views.getReleaseYear();
+                    books = booksService.findByReleaseYear(releaseYear);
+                    break;
+                case 2: // searchPhrase
+                    String phrase = views.getPhrase();
+                    books = booksService.searchByPhrase(phrase);
+                    break;
+                case 3: //searchByAuthor
+                    String authorPhrase = views.getPhrase();
+                    books = booksService.searchByAuthor(authorPhrase);
                     break;
                 default:
                     flag = false;
             }
-        }while (flag);
+        } while (flag);
+    }
+
+    private void authorsView() {
+        boolean flag = true;
+        List<Author> authors = authorsRepository.findAll();
+        do {
+            int decision = views.authorsMenu(authors);
+
+            switch (decision) {
+                case 1: // findByNation
+                    Nation nation = views.getNation();
+                    authors = authorsRepository.findByNation(nation);
+                    break;
+                case 2: // findAfterBirthYear
+                    int birthYear = views.getBirthYear();
+                    authors = authorsRepository.findAfterBirthYear(birthYear);
+                    break;
+                default:
+                    flag = false;
+            }
+        } while (flag);
     }
 }
