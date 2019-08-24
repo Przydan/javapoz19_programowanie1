@@ -41,8 +41,16 @@ public class BooksViews {
     }
 
     public Nation getNation() {
-        String nationAsString = scanner.nextLine();
-        return Nation.valueOf(nationAsString);
+        String nationAsString = scanner.nextLine().toUpperCase();
+        //sprawdzenie
+        System.out.println("Wpisany string" + nationAsString);
+        try {
+
+            return Nation.valueOf(nationAsString);
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+        return null;
     }
 
     public int getBirthYear() {
