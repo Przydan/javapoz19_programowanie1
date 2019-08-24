@@ -62,6 +62,7 @@ public class BooksViews {
 //        int menu = scanner.nextInt();
 //        scanner.nextLine(); // istotne że tu to jest
 //        return menu;
+        //
     }
 
     public int getReleaseYear() {
