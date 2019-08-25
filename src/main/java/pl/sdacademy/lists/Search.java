@@ -9,6 +9,7 @@ public class Search {
         int left = 0;
         int right = numbers.length - 1;
 
+
         while (left < right) {
             int center = (left + right) / 2;
             int midValue = numbers[center];

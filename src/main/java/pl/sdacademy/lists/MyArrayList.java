@@ -26,6 +26,7 @@ public class MyArrayList {
         return data[index];
     }
 
+
     public void add_cloneArray(int index, Integer value) {
         if (index > size) {
             throw new ArrayIndexOutOfBoundsException(index);

@@ -289,4 +289,5 @@ public class MyArrayListTest {
         // when
         myArrayList.add_cloneArray(7, 70);
     }
+
 }
