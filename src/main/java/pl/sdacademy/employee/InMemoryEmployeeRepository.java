@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
 public class InMemoryEmployeeRepository implements EmployeeRepository {
@@ -222,15 +223,23 @@ public class InMemoryEmployeeRepository implements EmployeeRepository {
 
     @Override
     public List<Employee> sortByAge() {
-        return employees.stream()
-                .sorted(Comparator.comparingInt(employee -> employee.getAge()))
-                .collect(Collectors.toList());
+        return sortBy(employee -> employee.getAge());
+//        return employees.stream()
+//                .sorted(Comparator.comparingInt(employee -> employee.getAge()))
+//                .collect(Collectors.toList());
     }
 
     @Override
     public List<Employee> sortBySalary() {
+        return sortBy(employee -> employee.getSalary());
+//        return employees.stream()
+//                .sorted(Comparator.comparingInt(employee -> employee.getSalary()))
+//                .collect(Collectors.toList());
+    }
+
+    private List<Employee> sortBy(ToIntFunction<Employee> selector) {
         return employees.stream()
-                .sorted(Comparator.comparingInt(employee -> employee.getSalary()))
+                .sorted(Comparator.comparingInt(selector))
                 .collect(Collectors.toList());
     }
 }

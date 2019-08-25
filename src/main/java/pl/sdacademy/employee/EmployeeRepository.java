@@ -8,4 +8,6 @@ public interface EmployeeRepository {
     List<Employee> sortByAge();
 
     List<Employee> sortBySalary();
+
+    //Map<String, List<Employee>> groupByAgeSegment();
 }

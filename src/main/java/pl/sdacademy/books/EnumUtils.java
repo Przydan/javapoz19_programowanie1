@@ -1,5 +1,7 @@
 package pl.sdacademy.books;
 
+/* some exercises, nothing special */
+
 import com.google.common.collect.Maps;
 
 import java.lang.reflect.Array;
@@ -8,6 +10,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class EnumUtils {
+
+
 
     public static <T, E extends Enum<E>> Function<T, E> lookupMap(Class<E> clazz, Function<E, T> mapper) {
         @SuppressWarnings("unchecked")
