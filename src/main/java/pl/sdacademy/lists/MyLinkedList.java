@@ -29,6 +29,18 @@ public class MyLinkedList {
         return size;
     }
 
+    //TODO - obsługa pustej listy
+    //TODO - obsluga blednego indexu (ArrayIndexOutOfBoundException)
+    public Integer get(int index) {
+        MyLinkedListItem tmpItem = head;
+        for (int i = 0; i < index; i++) {
+            tmpItem = tmpItem.nextItem;
+        }
+        return tmpItem.value;
+    }
+
+    
+
     private MyLinkedListItem getLastItem() {
         MyLinkedListItem tmpItem = this.head;
         while (tmpItem.nextItem != null) {
