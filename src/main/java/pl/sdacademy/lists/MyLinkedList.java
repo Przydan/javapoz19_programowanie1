@@ -32,14 +32,42 @@ public class MyLinkedList {
     //TODO - obsługa pustej listy
     //TODO - obsluga blednego indexu (ArrayIndexOutOfBoundException)
     public Integer get(int index) {
+        return getElement(index).value;
+    }
+
+    private MyLinkedListItem getElement(int index) {
         MyLinkedListItem tmpItem = head;
         for (int i = 0; i < index; i++) {
             tmpItem = tmpItem.nextItem;
         }
-        return tmpItem.value;
+        return tmpItem;
     }
 
-    
+    public void remove(int index) {
+        // 1. pobieramy poprzednik elementu index
+        // 2. pobieramy element do usuniecia
+        // 3. zmieniamy nextValue w poprzedniku na NextValue elementu ktory usuwamy
+        // 4. w usuwanym elemencie nullujemy nextValue
+        MyLinkedListItem previousElement = getElement(index - 1);
+        MyLinkedListItem toRemove = getElement(index);
+
+        previousElement.nextItem = toRemove.nextItem;
+
+        toRemove.nextItem = null;
+        size--;
+
+    }
+
+
+
+    public void add(int index, Integer value) {
+        //TODO - add na indexie pluss tests
+        //1. tworzymy nowy element
+        //2. ustawiamy wskaźnik na nasteny elemnt
+        //3. poprzednik wskaźnik na nowy element
+        //na 31.08 ZD
+        // TODO - brakujace testy do get, 
+    }
 
     private MyLinkedListItem getLastItem() {
         MyLinkedListItem tmpItem = this.head;
