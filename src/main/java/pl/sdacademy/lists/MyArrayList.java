@@ -26,7 +26,6 @@ public class MyArrayList {
         return data[index];
     }
 
-
     public void add_cloneArray(int index, Integer value) {
         if (index > size) {
             throw new ArrayIndexOutOfBoundsException(index);
@@ -35,7 +34,6 @@ public class MyArrayList {
         for (int i = 0; i < index; i++) {
             newArray[i] = data[i];
         }
-
         newArray[index] = value;
 
         for (int i = 0; i < size + 1; i++) {
@@ -96,6 +94,4 @@ public class MyArrayList {
             //this.data = Arrays.copyOf(data, data.length * 2)
         }
     }
-
-
 }

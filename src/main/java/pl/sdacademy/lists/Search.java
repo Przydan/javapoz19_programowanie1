@@ -1,14 +1,9 @@
 package pl.sdacademy.lists;
 
 public class Search {
-    public static void main(String[] args) {
-
-    }
-
     public int binarySearch(int value, int[] numbers) {
         int left = 0;
         int right = numbers.length - 1;
-
 
         while (left < right) {
             int center = (left + right) / 2;
@@ -22,7 +17,6 @@ public class Search {
                 left = right = center;
             }
         }
-
         return value == numbers[left] ? left : -1;
     }
 }
