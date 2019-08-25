@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.books;
 
 public class Book {
     private String title;
@@ -22,6 +22,7 @@ public class Book {
                 "title= '" + title + '\'' +
                 ", releaseYear= " + releaseYear +
                 ", pages= " + pages +
+                ", author= " + author.getFirstName() + " " + author.getLastName() +
                 '}';
     }
 

@@ -1,12 +1,13 @@
 package pl.sdacademy;
 
+import pl.sdacademy.books.Author;
+import pl.sdacademy.books.Book;
+import pl.sdacademy.books.Nation;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
-import static pl.sdacademy.Nation.PL;
-import static pl.sdacademy.Nation.USA;
 
 //import static sun.jvm.hotspot.runtime.BasicObjectLock.size;
 
@@ -53,28 +54,8 @@ public class ApplicationBook {
         findsBooksByAuthor(books, authors.get(1));
         System.out.println("Joanne Murray Rowling ");
         findsBooksByAuthor(books, authors.get(4));
+        integerExamples();
 
-
-//// Przykład wykorzystania lambd
-//        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-//// Lambda - implementacja klasy anonimowej.
-//        integers.stream()
-//                .filter(n -> n % 2 == 0) // filtracja
-//                .filter(n -> n > 5)
-//                .filter(n -> n < 10)
-//                .map(n -> n * 2) // każdy element zmodyfikować i stworzyć nowy strumień
-//                .map(n -> n % 3 == 0 ? "Podzielne przez 3" : "nie podzielne przez trzy") // inta mapujemy na stringa i tu nam się stworzy strumień stringów
-//                .collect(Collectors.toList()) // wrzucenie do listy
-//                .forEach(System.out::println);  // forEach(n -> System.out.println(n)) // forEach konsumuje strumień, nie tworzy nowych stumieni
-
-//
-//        integers.stream()
-//                .filter(new Predicate<Integer>() { // klasa anonimowa
-//                    @Override
-//                    public boolean test(Integer integer) {
-//                        return false;
-//                    }
-//                });
 
     }
 
@@ -83,5 +64,28 @@ public class ApplicationBook {
         books.stream()
                 .filter(book -> book.getAuthor().equals(author))
                 .forEach(book -> System.out.println(book));
+    }
+
+    private static void integerExamples() {
+        // Przykład wykorzystania lambd
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// Lambda - implementacja klasy anonimowej.
+        integers.stream()
+                .filter(n -> n % 2 == 0) // filtracja
+                .filter(n -> n > 5)
+                .filter(n -> n < 10)
+                .map(n -> n * 2) // każdy element zmodyfikować i stworzyć nowy strumień
+                .map(n -> n % 3 == 0 ? "Podzielne przez 3" : "nie podzielne przez trzy") // inta mapujemy na stringa i tu nam się stworzy strumień stringów
+                .collect(Collectors.toList()) // wrzucenie do listy
+                .forEach(System.out::println);  // forEach(n -> System.out.println(n)) // forEach konsumuje strumień, nie tworzy nowych stumieni
+
+
+        integers.stream()
+                .filter(new Predicate<Integer>() { // klasa anonimowa
+                    @Override
+                    public boolean test(Integer integer) {
+                        return false;
+                    }
+                });
     }
 }

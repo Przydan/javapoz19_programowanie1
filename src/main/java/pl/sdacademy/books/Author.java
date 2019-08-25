@@ -1,19 +1,29 @@
-package pl.sdacademy;
+package pl.sdacademy.books;
 
 import java.util.Objects;
 
 public class Author {
     private String firstName;
     private String lastName;
-    private int birthyear;
+    private int birthYear;
     private Nation nation;
+
+    public Author() {
+    }
+
+    public Author(String firstName, String lastName, int birthYear, Nation nation) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+        this.nation = nation;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return birthyear == author.birthyear &&
+        return birthYear == author.birthYear &&
                 Objects.equals(firstName, author.firstName) &&
                 Objects.equals(lastName, author.lastName) &&
                 nation == author.nation;
@@ -21,28 +31,17 @@ public class Author {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, birthyear, nation);
+        return Objects.hash(firstName, lastName, birthYear, nation);
     }
 
     @Override
     public String toString() {
         return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthyear=" + birthyear +
-                ", nation=" + nation +
+                "firstName= '" + firstName + '\'' +
+                ", lastName= '" + lastName + '\'' +
+                ", birthyear= " + birthYear +
+                ", nation= " + nation +
                 '}';
-    }
-
-    public Author() {
-    }
-
-
-    public Author(String firstName, String lastName, int birthyear, Nation nation) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthyear = birthyear;
-        this.nation = nation;
     }
 
     public String getFirstName() {
@@ -61,12 +60,12 @@ public class Author {
         this.lastName = lastName;
     }
 
-    public int getBirthyear() {
-        return birthyear;
+    public int getBirthYear() {
+        return birthYear;
     }
 
-    public void setBirthyear(int birthyear) {
-        this.birthyear = birthyear;
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     public Nation getNation() {
@@ -75,5 +74,9 @@ public class Author {
 
     public void setNation(Nation nation) {
         this.nation = nation;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }
