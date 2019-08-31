@@ -55,9 +55,7 @@ public class MyLinkedList {
 
         toRemove.nextItem = null;
         size--;
-
     }
-
 
 
     public void add(int index, Integer value) {
@@ -66,7 +64,13 @@ public class MyLinkedList {
         //2. ustawiamy wskaźnik na nasteny elemnt
         //3. poprzednik wskaźnik na nowy element
         //na 31.08 ZD
-        // TODO - brakujace testy do get, 
+        // TODO - brakujace testy do get,
+        MyLinkedListItem toAdd = new MyLinkedListItem(value);
+        MyLinkedListItem previousElement = getElement(index - 1);
+
+        toAdd.nextItem = previousElement.nextItem;
+        previousElement.nextItem = toAdd;
+        size++;
     }
 
     private MyLinkedListItem getLastItem() {
